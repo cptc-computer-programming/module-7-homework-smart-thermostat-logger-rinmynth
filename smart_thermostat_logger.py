@@ -7,8 +7,8 @@ WARM_LIMIT = 76
 # variable for invalid value
 invalid_value = 0
 
-# initialize temperature reading count
-read_count = 0
+# initialize variable to get total temperature
+total_temp = 0
 
 # ask user for number of temperature readings
 user_temperature_readings = int(input("Enter the number of temperature readings: "))
@@ -24,9 +24,20 @@ else:
         
        # checks if temperture is valid 
         if temperature_input >= MIN_VALID_TEMP and temperature_input <= MAX_VALID_TEMP:
-            print("good")
+            total_temp = total_temp + temperature_input
+            
         else:
             # traps you in a loop for invalid input 
             while temperature_input < MIN_VALID_TEMP or temperature_input > MAX_VALID_TEMP:
                 print("Error: Temperature must be between 40 and 100 degrees")
                 temperature_input = int(input(f"Enter temperature reading {readings + 1}: "))
+
+# calculates average temperature
+average_temp = total_temp / user_temperature_readings
+
+# shows summary of information
+print("\nSmart Thermostat Summary"
+      "\n------------------------")
+print(f"Average temperature: {average_temp}")
+print("Readings below comfort range: ")
+print("Readings above comfort range: ")
