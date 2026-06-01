@@ -18,12 +18,15 @@ if user_temperature_readings <= invalid_value:
     print("Error: The number of readings must be greater than 0")
     user_temperature_readings
 else:
+    # loops for number of user temperature readings
     for readings in range(user_temperature_readings):
         temperature_input = int(input(f"Enter temperature reading {readings + 1}: "))
-       
+        
+       # checks if temperture is valid 
         if temperature_input >= MIN_VALID_TEMP and temperature_input <= MAX_VALID_TEMP:
             print("good")
-        else: 
+        else:
+            # traps you in a loop for invalid input 
             while temperature_input < MIN_VALID_TEMP or temperature_input > MAX_VALID_TEMP:
                 print("Error: Temperature must be between 40 and 100 degrees")
                 temperature_input = int(input(f"Enter temperature reading {readings + 1}: "))
