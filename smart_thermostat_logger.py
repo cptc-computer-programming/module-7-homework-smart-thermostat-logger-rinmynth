@@ -7,6 +7,9 @@ WARM_LIMIT = 76
 # variable for invalid value
 invalid_value = 0
 
+# initialize temperature reading count
+read_count = 0
+
 # ask user for number of temperature readings
 user_temperature_readings = int(input("Enter the number of temperature readings: "))
 
@@ -15,4 +18,6 @@ if user_temperature_readings <= invalid_value:
     print("Error: The number of readings must be greater than 0")
     user_temperature_readings
 else:
-    print("good")
+    for readings in range(user_temperature_readings):
+        temperature_input = int(input(f"Enter temperature reading {readings + 1}: "))
+        
